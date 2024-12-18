@@ -6,4 +6,5 @@ import se.distansakademin.events_platform.models.Event;
 
 @Repository
 public interface EventRepository extends JpaRepository<Event, Long> {
+    int countEventByNameContaining(String name);
 }

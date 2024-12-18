@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+</head>
+<body>
+
+    <h1>Events</h1>
+
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date</th>
+        </tr>
+
+        <tr th:each="event : ${events}">
+
+            <td th:text="${event.getId()}" />
+
+            <td th:text="${event.getName()}" />
+
+            <td th:text="${event.getDate()}" />
+
+        </tr>
+
+    </table>
+
+
+    <hr>
+
+
+    <form action="/events" method="post">
+
+        <input type="text" name="name" placeholder="Name"> <br>
+
+        <input type="text" name="date" placeholder="Date"> <br>
+
+        <button type="submit">Save event</button>
+
+    </form>
+
+    <hr>
+
+
+    <form action="/seed-events" method="post">
+        <button type="submit">Seed events!</button>
+    </form>
+</body>
+</html>

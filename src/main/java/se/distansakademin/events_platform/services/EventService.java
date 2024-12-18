@@ -20,4 +20,20 @@ public class EventService {
     public void saveEvent(Event event){
         repository.save(event);
     }
+
+    public void seedInitialEvents(){
+        long totalEventCount = repository.count();
+
+        if (totalEventCount > 0){
+            return;
+        }
+
+        Event lucia = new Event("Lucia", "2024-12-13");
+        Event christmas = new Event("Christmas", "2024-12-24");
+        Event newYear = new Event("New year", "2024-12-31");
+
+        repository.save(lucia);
+        repository.save(christmas);
+        repository.save(newYear);
+    }
 }
