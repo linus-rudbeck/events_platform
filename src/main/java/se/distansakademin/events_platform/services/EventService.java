@@ -6,6 +6,7 @@ import se.distansakademin.events_platform.models.Event;
 import se.distansakademin.events_platform.repositories.EventRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EventService {
@@ -35,5 +36,19 @@ public class EventService {
         repository.save(lucia);
         repository.save(christmas);
         repository.save(newYear);
+    }
+
+    public Event getSingleEvent(long id) {
+        Optional<Event> eventOptional = repository.findById(id);
+
+        if(eventOptional.isEmpty()){
+            return null;
+        }
+
+        return eventOptional.get();
+    }
+
+    public void deleteEvent(long id) {
+        repository.deleteById(id);
     }
 }

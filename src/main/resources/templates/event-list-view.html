@@ -14,6 +14,7 @@
             <th>ID</th>
             <th>Name</th>
             <th>Date</th>
+            <th>View</th>
         </tr>
 
         <tr th:each="event : ${events}">
@@ -23,6 +24,10 @@
             <td th:text="${event.getName()}" />
 
             <td th:text="${event.getDate()}" />
+
+            <td>
+                <a th:href="@{/events/{id}(id = ${event.getId()})}">View</a>
+            </td>
 
         </tr>
 
